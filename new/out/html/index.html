@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TestStory - An interactive story experience">
+    <meta name="theme-color" content="#1e293b">
+    <title>TestStory - storyde</title>
+    
+    <!-- UIKit Icons are loaded via JavaScript below -->
+    
+    <!-- UIKit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="game.css">
+    
+    <!-- UIKit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
+    
+    <!-- jQuery and Dendry -->
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="core.js"></script>
+    <script src="game.js"></script>
+  </head>
+  <body class="theme-light">
+    
+    <!-- Main Container -->
+    <div class="main-container">
+      
+      <!-- Sticky Header -->
+      <header class="sticky-header">
+        <div class="header-content">
+          <div class="header-left">
+            <button id="progress-toggle" class="header-btn" aria-label="Toggle Progress" tabindex="0">
+              <span uk-icon="icon: world"></span>
+              <span class="sr-only">Toggle Progress Panel</span>
+            </button>
+            <div class="game-title">
+              <h1>TestStory</h1>
+            </div>
+          </div>
+          <div class="header-right">
+            <button id="info-toggle" class="header-btn" aria-label="Toggle Info" tabindex="0">
+              <span uk-icon="icon: list"></span>
+              <span class="sr-only">Toggle Info Panel</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper">
+        
+        <!-- Left Sidebar - Progress -->
+        <aside id="progress-sidebar" class="sidebar sidebar-left">
+          <div class="sidebar-header">
+            <h3>
+              <span uk-icon="icon: world"></span>
+              Progress
+            </h3>
+          </div>
+          <div class="sidebar-content">
+            <div id="progress" role="region" aria-label="Game Progress Information">
+              <!-- Dendry progress content will be populated here -->
+            </div>
+          </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-main">
+          <div id="chat-container" class="chat-container" role="log" aria-label="Game Story">
+            <div id="content" class="chat-messages" aria-live="polite">
+              <!-- Dendry game content will be displayed here -->
+            </div>
+          </div>
+
+          <!-- Choices Container -->
+          <div id="choices-container" class="choices-container" style="display: none;" role="region" aria-label="Available Choices">
+            <!-- Dendry choices will be populated here -->
+          </div>
+
+          <!-- Bottom Spacer -->
+          <div class="bottom-spacer"></div>
+        </main>
+
+        <!-- Right Sidebar - Info -->
+        <aside id="info-sidebar" class="sidebar sidebar-right">
+          <div class="sidebar-header">
+            <h3>
+              <span uk-icon="icon: list"></span>
+              Info
+            </h3>
+            <button id="sidebar-theme-toggle" class="sidebar-header-btn" aria-label="Toggle Theme" tabindex="0">
+              <span uk-icon="icon: bolt"></span>
+              <span class="sr-only">Toggle Theme</span>
+            </button>
+            <button class="sidebar-header-btn" onclick="window.showSaveSlots();" aria-label="Save/Load Game" tabindex="0">
+              <span uk-icon="icon: download"></span>
+              <span class="sr-only">Save/Load Game</span>
+            </button>
+          </div>
+          <div class="sidebar-content">
+            <div id="info" role="region" aria-label="Game Info Information">
+              <!-- Dendry info content will be populated here -->
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Save/Load Modal -->
+    <div id="save" class="modal-overlay" style="display: none;" role="dialog" aria-labelledby="save-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="save-modal-title">Save & Load Game</h2>
+          <button onclick="window.hideSaveSlots();" class="modal-close" aria-label="Close Save Dialog">
+            <span uk-icon="icon: close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table id="saves_table" class="saves-table" role="table" aria-label="Save Slots">
+            <thead>
+              <tr>
+                <th scope="col">Slot</th>
+                <th scope="col">Action</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Save Info</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Auto-0</th>
+                <td><button class="save-button" id="save_button_a0">Save</button></td>
+                <td><button class="delete-button" id="delete_button_a0">Delete</button></td>
+                <td class="save_info" id="save_info_a0"></td>
+            </tr>
+            <tr>
+                <th scope="row">Auto-1</th>
+                <td><button class="save-button" id="save_button_a1">Save</button></td>
+                <td><button class="delete-button" id="delete_button_a1">Delete</button></td>
+                <td class="save_info" id="save_info_a1"></td>
+            </tr>
+            <tr>
+                <th scope="row">0</th>
+                <td><button class="save-button" id="save_button_0">Save</button></td>
+                <td><button class="delete-button" id="delete_button_0">Delete</button></td>
+                <td class="save_info" id="save_info_0"></td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td><button class="save-button" id="save_button_1">Save</button></td>
+                <td><button class="delete-button" id="delete_button_1">Delete</button></td>
+                <td class="save_info" id="save_info_1"></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><button class="save-button" id="save_button_2">Save</button></td>
+                <td><button class="delete-button" id="delete_button_2">Delete</button></td>
+                <td class="save_info" id="save_info_2"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td><button class="save-button" id="save_button_3">Save</button></td>
+                <td><button class="delete-button" id="delete_button_3">Delete</button></td>
+                <td class="save_info" id="save_info_3"></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td><button class="save-button" id="save_button_4">Save</button></td>
+                <td><button class="delete-button" id="delete_button_4">Delete</button></td>
+                <td class="save_info" id="save_info_4"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td><button class="save-button" id="save_button_5">Save</button></td>
+                <td><button class="delete-button" id="delete_button_5">Delete</button></td>
+                <td class="save_info" id="save_info_5"></td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td><button class="save-button" id="save_button_6">Save</button></td>
+                <td><button class="delete-button" id="delete_button_6">Delete</button></td>
+                <td class="save_info" id="save_info_6"></td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td><button class="save-button" id="save_button_7">Save</button></td>
+                <td><button class="delete-button" id="delete_button_7">Delete</button></td>
+                <td class="save_info" id="save_info_7"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
