@@ -1,0 +1,17 @@
+@ask_how_it_works
+title: Understanding the Process
+subtitle: Ready to learn the framework
+
+character: We make most of our decisions, to meet a need, a desire or solve a problem. So for example, I am getting hungry. Should I light a Fire right away? 
+
+- @fire_cooking
+
+@fire_cooking
+title: Well, that depends
+subtitle:  on where you are and what kind of heating equipment you got.
+
+Me: Well, that depends on where you are and what kind of heating equipment you got.
+
+character: Exactly! 
+It's all about context. Most of the time we make decisions, the context of our decisions is if we meet the need, the desire or solve the problem we have. 
+But when managing complexity, your context needs to cover much more than this.

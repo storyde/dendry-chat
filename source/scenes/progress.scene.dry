@@ -1,0 +1,49 @@
+title: Progress
+subtitle: Your game progress
+
+# This scene contains information for the right sidebar.
+
+= Background information
+
+[? if player_background = "individual" : I am here by myself ?]
+[? if player_background = "group" : I am here with my family or friens ?]
+[? if player_background = "organization" : I am here as part of an organization ?]
+
+= My Holistic Context
+
+[? if context_progress < 1 : *Building your holistic context...* ?]
+[? if context_progress >= 7 : This holistic context guides all your decisions. ?]
+[? if context_progress >= 1 and context_progress < 7 : *Developing your holistic context...* ?]
+
+**Statement of Purpose**
+
+
+**Whole Under Management**
+
+[? if whole_under_management = "individual" : Myself and my personal impact on the world ?]
+[? if whole_under_management = "family" : My family and the environment that sustains us ?]
+[? if whole_under_management = "household" : My household and our immediate community ?]
+[? if whole_under_management = "community" : My community and our shared resources ?]
+[? if whole_under_management = "organization" : My organization and all who depend on it ?]
+[? if whole_under_management = "region" : My region and its interconnected systems ?]
+
+**Quality of Life We Seek**
+
+**Resource Base**
+
+[? if resource_base = "urban" : The network of land, people, and systems that sustain urban life ?]
+[? if resource_base = "local" : Our local landscape and community relationships ?]
+[? if resource_base = "direct" : The land we steward and the community we serve ?]
+[? if resource_base = "mixed" : Our diverse network of local and distant resources ?]
+
+**Future Resource Base Conditions**
+
+[? if condition_soil = 1 or condition_water = 1 or condition_climate = 1 or condition_economy = 1 or condition_social = 1 or condition_culture = 1 : Regenerating soils and diverse biological communities; Clean water and healthy watersheds; Stable climate and weather patterns; Equitable economy serving all people; Strong social bonds and mutual support; Thriving education and cultural heritage ?]
+
+**Behaviors for Social Support**
+
+[? if behavior_open = 1 or behavior_respectful = 1 or behavior_collaborative = 1 or behavior_honest = 1 or behavior_generous = 1 or behavior_patient = 1 or behavior_curious = 1 or behavior_responsible = 1 : Open and transparent communication; Respectful of all people; Collaborative and cooperative; Honest and trustworthy; Generous with resources and knowledge; Patient and understanding; Curious and eager to learn; Reliable and responsible ?]
+
+[? if context_progress >= 7 : *This holistic context guides all decisions, ensuring they move toward the life we want while maintaining the conditions needed for future generations.* ?]
+
+= Filter Questions

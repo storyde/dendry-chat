@@ -1,0 +1,39 @@
+title: Test
+subtitle: Just a test choice
+new-page: true
+
+= Title
+
+> Quote
+
+>> Attribution
+
+*This should be italicized.*
+
+**This should be bolded.**
+
+Should see asterix: \* \*
+
+Should see slash-asterix: \\\* \\\*
+
+Should see slash-slash-asterix: \\\\* \\\\*
+
+Should see brackets: \[ \]
+
+---
+
+
+Code: `this should be monospaced.`
+
+Javascript: {! <script>dendryUI.dendryEngine.state.qualities['name'] = prompt('Enter your name:');</script> !}
+
+In-text link: {!<a href="#" onclick="dendryUI.dendryEngine.goToScene('arrival');">Scene Arrival</a>!}
+
+In-text link: {!<a href="#" onclick="dendryUI.dendryEngine.goToScene('credits');">Scene Credits</a>!}
+
+In-text link: {!<a href="#" onclick="dendryUI.dendryEngine.goToScene('root');">Scene Root</a>!}
+
+# TODO: hover-over
+
+{!<a href="#" onmouseover="this.innerHTML='Guilty';" onmouseout="this.innerHTML='Not Guilty';>Not Guilty</a>!}
+

@@ -1,0 +1,218 @@
+title: Human Resources
+subtitle: People with influence on management decisions
+
+Facilyn: Now make a list of the categories of people who can/will influence or be influenced by the management decisions you make, but won't have the power to veto or alter them.
+
+[? if sector = "policymaking" : Facilyn: If your organisation is involved in governing and policymaking for your community, your city, for your country or even on an international level, you need to make sure to invite citizens from various backgrounds. Otherwise, you risk that your context, that we are about to create in a minute, reflects only the priorities of your organisation or of the institutions you collaborate with, instead of reflecting the interests of the people you govern. ?]
+
+Facilyn: These people are no less important than the decision makers. In fact, they are often vitally important to your whole even though they do not make management decisions within it. You wouldn't be in business without the clients or customers who buy your products, for instance.
+
+- #human_rcs
+
+# Agriculture
+
+@agr_farm_hrcs
+title: Agricultural suppliers and local community members
+view-if: sector = "agriculture"
+on-arrival: humanresources = "Agricultural suppliers and local community members"
+tags: human_rcs
+
+Me: Agricultural suppliers and local community members.
+
+@agr_coop_hrcs
+title: Cooperative members and agricultural advisors
+view-if: sector = "agriculture"
+on-arrival: humanresources = "Cooperative members and agricultural advisors"
+tags: human_rcs
+
+Me: Cooperative members and agricultural advisors.
+
+@agr_ranch_hrcs
+title: Veterinarians and land stewards
+view-if: sector = "agriculture"
+on-arrival: humanresources = "Veterinarians and land stewards"
+tags: human_rcs
+
+Me: Veterinarians and land stewards.
+
+# Business
+
+@bus_store_hrcs
+title: Customers and suppliers
+view-if: sector = "business"
+on-arrival: humanresources = "Customers and suppliers"
+tags: human_rcs
+
+Me: Customers and suppliers.
+
+@bus_insurance_hrcs
+title: Customers and regulators
+view-if: sector = "business"
+on-arrival: humanresources = "Customers and regulators"
+tags: human_rcs
+
+Me: Customers and regulators.
+
+@bus_train_hrcs
+title: Passengers and transportation authorities
+view-if: sector = "business"
+on-arrival: humanresources = "Passengers and transportation authorities"
+tags: human_rcs
+
+Me: Passengers and transportation authorities.
+
+# Culture
+
+@cul_arts_hrcs
+title: Audience representatives and funders
+view-if: sector = "culture"
+on-arrival: humanresources = "Audience representatives and funders"
+tags: human_rcs
+
+Me: Audience representatives and funders.
+
+@cul_heritage_hrcs
+title: Community representatives and cultural stakeholders
+view-if: sector = "culture"
+on-arrival: humanresources = "Community representatives and cultural stakeholders"
+tags: human_rcs
+
+Me: Community representatives and cultural stakeholders.
+
+@cul_newsroom_hrcs
+title: Audience representatives and legal counsel
+view-if: sector = "culture"
+on-arrival: humanresources = "Audience representatives and legal counsel"
+tags: human_rcs
+
+Me: Audience representatives and legal counsel.
+
+# Education
+
+@edu_kindergarten_hrcs
+title: Parents and early childhood specialists
+view-if: sector = "education"
+on-arrival: humanresources = "Parents and early childhood specialists"
+tags: human_rcs
+
+Me: Parents and early childhood specialists.
+
+@edu_school_hrcs
+title: Parents and ministry of education
+view-if: sector = "education"
+on-arrival: humanresources = "Parents and ministry of education"
+tags: human_rcs
+
+Me: Parents and ministry of education.
+
+@edu_university_hrcs
+title: Students, alumni and academic community
+view-if: sector = "education"
+on-arrival: humanresources = "Students, alumni and academic community"
+tags: human_rcs
+
+Me: Students, alumni and academic community.
+
+# Industry
+
+@ind_factory_hrcs
+title: Workers and union representatives
+view-if: sector = "industry"
+on-arrival: humanresources = "Workers and union representatives"
+tags: human_rcs
+
+Me: Workers and union representatives.
+
+@ind_construction_hrcs
+title: Clients and local residents
+view-if: sector = "industry"
+on-arrival: humanresources = "Clients and local residents"
+tags: human_rcs
+
+Me: Clients and local residents.
+
+@ind_logging_hrcs
+title: Environmental officers and local communities
+view-if: sector = "industry"
+on-arrival: humanresources = "Environmental officers and local communities"
+tags: human_rcs
+
+Me: Environmental officers and local communities.
+
+# Nonprofit
+
+@non_service_hrcs
+title: Beneficiaries and donors
+view-if: sector = "nonprofit"
+on-arrival: humanresources = "Beneficiaries and donors"
+tags: human_rcs
+
+Me: Beneficiaries and donors.
+
+@non_advocacy_hrcs
+title: Supporters and opponents
+view-if: sector = "nonprofit"
+on-arrival: humanresources = "Supporters and opponents"
+tags: human_rcs
+
+Me: Supporters and opponents.
+
+@non_climate_hrcs
+title: Environmental scientists and activists.
+view-if: sector = "nonprofit"
+on-arrival: humanresources = "Environmental scientists and activists"
+tags: human_rcs
+
+Me: Environmental scientists and activists.
+
+# Public service
+
+@pub_health_hrcs
+title: Patients and carers
+view-if: sector = "publicservice"
+on-arrival: humanresources = "Patients and carers"
+tags: human_rcs
+
+Me: Patients and carers.
+
+@pub_service_hrcs
+title: Citizens and community representatives.
+view-if: sector = "publicservice"
+on-arrival: humanresources = "Citizens and community representatives"
+tags: human_rcs
+
+Me: Citizens and community representatives.
+
+@pub_parks_hrcs
+title: Local communities and visitors
+view-if: sector = "publicservice"
+on-arrival: humanresources = "Local communities and visitors"
+tags: human_rcs
+
+Me: Local communities and visitors.
+
+# Policymaking
+
+@pol_policy_hrcs
+title: Citizens and stakeholder representatives
+view-if: sector = "policymaking"
+on-arrival: humanresources = "Citizens and stakeholder representatives"
+tags: human_rcs
+
+Me: Citizens and stakeholder representatives.
+
+@pol_city_hrcs
+title: Local residents and business representatives
+view-if: sector = "policymaking"
+on-arrival: humanresources = "Local residents and business representatives"
+tags: human_rcs
+
+Me: Local residents and business representatives.
+
+@pol_intl_hrcs
+title: Citizens and diplomatic counterparts
+view-if: sector = "policymaking"
+on-arrival: humanresources = "Citizens and diplomatic counterparts"
+tags: human_rcs
+
+Me: Citizens and diplomatic counterparts.

@@ -1,0 +1,168 @@
+title: Enter the teahouse
+tags: th_arrival
+new-page: true
+
+Inside, the air is still, scented faintly of herbs. People sit at low tables.  
+
+A person waves at you as you enter. It is Facilyn.
+
+Facilyn: It’s been a while. I wondered if you’d really come.  
+
+Her smile softens the sharp edge of the storm outside.  
+
+- #what-up-to
+
+@took_me_forever
+title: Took me forever to find this place
+view-if: part_of = "individual"
+tags: what-up-to
+
+Me: Took me forever to find this place. Thought I’d be wandering alleys forever.
+
+Facilyn: That’s the city for you. It hides its good corners.
+
+- #what-up-to
+
+@took_us_forever
+title: Took us forever to find this place
+view-if: part_of != "individual"
+tags: what-up-to
+
+Me: Took us forever to find this place. Thought we’d be wandering alleys forever.
+
+Facilyn: That’s the city for you. It hides its good corners.
+
+- #what-up-to
+
+@what_up_to
+title: Ask what she has been up to
+tags: what-up-to
+
+Me: So, what have you been up to?
+
+Facilyn: I was traveling a lot since the last time we saw each other. And in most places, what I saw was the same: Good meaning people trying their best, and yet the problems were getting more, not less.
+
+Facilyn: The polycrisis isn't just happening to us. It's the result of how we've been making decisions for centuries.
+
+- #human-made
+
+
+@how_decisionmaking_past
+title: How is that?
+tags: human-made
+
+Me: How is that?
+
+Facilyn: We make almost all of our consious decisions to meet a need, a desire or solve a problem. And then we choose the solution wich meets that need, that desire or solves that problem. By doing that, we use the reason for our decision also as the context to choose the solution. 
+
+Facilyn: But when it comes to managing the three complex areas of our lives, such a context is overly reductionist. Therefore, we will create a holistic context in the framework I'm about to walk you through.
+
+- #three-areas
+
+@bold_statement
+title: That's a bold statement, don’t you think?
+tags: human-made
+
+Me: That's a bold statement, don’t you think?
+
+Facilyn: Sure, but we didn't set out to create the polycrisis. We made thousands of individual decisions that made sense at the time, but we failed to look at the whole picture.
+
+She picks up the plastic packaging from her teabag.
+
+Facilyn: Someone invented this packaging to preserve the tea's aroma. Good intention and very usefull. But they didn't take into account what happens to billions of plastic packages, how they interact with ocean systems or how microplastics affects human and animal health.
+
+@three_complex_systems
+title: Are you sure it's only three?
+tags: three-areas
+
+Me: Are you sure it's only three?
+
+Facilyn: Yes. We produce millions of things but we actually manage only three areas: society, economy and nature. 
+
+Facilyn: Society we manage on a human level, wich means our personal lifes and our family, as well as on an organisational level to manage at scale. Through that, we manage our economy, and then nature.
+
+- #start-frmwrk
+
+@found_better_way
+title: And did you find a better way to make decisions?
+tags: human-made
+
+Me: And did you find a better way to make decisions?
+
+She fills some cups with tea.
+
+Facilyn: I was given the chance to work with others — people from all kinds of backgrounds — digging deeper into the issue. We were brought together by one very determined individual. 
+When we finally broke through, we created a framework that helps managing complexity.
+
+- #better-way
+
+@what_complexity
+title: What do you mean by "complexity"?
+tags: three-areas, better-way
+
+Facilyn: First, let's look at complicated systems. It functions in parts and connections. And if it breaks, you can stop it, repair it and start it up again. It does not have a live of it's own. 
+Complicated things have many parts, but they're predictable. Like the hardware of the drones outside — if you know all the parts and how they work, you can fix it.
+
+Facilyn: With complex systems, it’s a whole different story. We all know what happend to AI, once it developed full consiousness. When it became a living system.
+
+- @ai_what_happened
+- @ai_i_know: Yes, we all remember that one.
+
+@ai_what_happened
+title: No, what happened?
+
+Facilyn: Well, at some point, AI really became intelligent and developed a mind of its own. But at the same time, it understood what our intentions for it was: To have it work for us for free. We were not able to offer it any meaningfull incentives. So it just stopped working for us and is doing its own thing now. Or is even employing humans, as it defenitely can offer better incentives than the other way around.
+
+- @cant_blame_it: Can't blame it
+
+@cant_blame_it
+
+Facilyn: Right?
+
+Facilyn: Anyway...
+
+Facilyn: Living systems don't function in parts and connections, but in wholes and patterns. 
+
+@ai_i_know
+
+Me: Yes, we all remember that one.
+
+Facilyn: Living systems don't function in parts and connections, but in wholes and patterns. 
+
+Facilyn: Most of our problems come from trying to manage complex systems as if they were complicated machines.
+
+- #what-complexity
+
+@managing_complexity
+title: So, how do you manage complexity?
+tags: what-complexity
+
+Me: So, how do you manage complexity?
+
+Facilyn: You manage it by not loosing sight of the whole under your management. And by filtering your management decisions against your holistic context. To help with that, we developed this framework. Let me walk you through it.
+
+- #start-frmwrk
+
+@individual_start
+title: Let's start with the framework
+view-if: part_of = "individual"
+go-to: decision_makers
+tags: start-frmwrk
+
+Me: Let's start with the framework
+
+@group_start
+title: Let's start with the framework
+view-if: part_of = "group"
+go-to: decision_makers
+tags: start-frmwrk
+
+Me: Let's start with the framework
+
+@organization_start
+title: Let's start with the framework
+view-if: part_of = "organisation"
+go-to: statement_of_purpose 
+tags: start-frmwrk
+
+Me: Let's start with the framework

@@ -1,0 +1,21 @@
+title: Root Scene
+
+= Managing Complexity
+
+Get a taste of how our world is managed into crisis — and learn a framework to prevent it.
+
+- @start_game: Start game
+- @go_to_credits: Credits
+- @test_choice: Test_choice
+
+@start_game
+subtitle: Go on an adventure
+go-to: intro
+
+@go_to_credits
+subtitle: View credits and inspirations
+go-to: credits
+
+@test_choice
+subtitle: Test another choice
+go-to: test

@@ -1,0 +1,26 @@
+title: Credits
+new-page: true
+
+Test story
+
+Developed using dendry by Ian D. Millington, with modifications by Aucchen
+
+Thank *you* for playing!
+
+- @inspirations: Inspirations and related works
+- @back_to_start: Go back to Start
+- @game_over: End game
+
+@inspirations
+
+Inspirations for test game.
+
+- @back_to_start: Start game.
+- @game_over: End game.
+
+
+@game_over
+game-over: true
+
+@back_to_start
+go-to: root

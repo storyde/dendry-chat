@@ -1,0 +1,218 @@
+title: Monetary Resources
+subtitle: Money Available to You
+
+Facilyn: Now identify the moneytary resources you have.  What’s within reach?
+ 
+Facilyn: This is not about a deeper conversation about the meaning of money and wealth. Just list what is in your reach.
+ 
+This includes cash, savings, a credit you could take if needed, or crowd sourcing, etc. And it would almost always include money that could be generated from the physical assets listed in your resource base. 
+
+- #monetary_rcs
+
+# Agriculture
+
+@agr_farm_mrcs
+title: Operating funds and crop revenue
+view-if: sector = "agriculture"
+on-arrival: monetaryresources = "Operating funds and crop revenue"
+tags: monetary_rcs
+
+Me: Operating funds and crop revenue.
+
+@agr_coop_mrcs
+title: Member fees and cooperative sales revenue
+view-if: sector = "agriculture"
+on-arrival: monetaryresources = "Member fees and cooperative sales revenue"
+tags: monetary_rcs
+
+Me: Member fees and cooperative sales revenue.
+
+@agr_ranch_mrcs
+title: Livestock sales and land lease income
+view-if: sector = "agriculture"
+on-arrival: monetaryresources = "Livestock sales and land lease income"
+tags: monetary_rcs
+
+Me: Livestock sales and land lease income.
+
+# Business
+
+@bus_store_mrcs
+title: Working capital and revenue streams
+view-if: sector = "business"
+on-arrival: monetaryresources = "Working capital and revenue streams"
+tags: monetary_rcs
+
+Me: Working capital and revenue streams.
+
+@bus_insurance_mrcs
+title: Premium income and reserve funds
+view-if: sector = "business"
+on-arrival: monetaryresources = "Premium income and reserve funds"
+tags: monetary_rcs
+
+Me: Premium income and reserve funds.
+
+@bus_train_mrcs
+title: Ticket revenue and government subsidies
+view-if: sector = "business"
+on-arrival: monetaryresources = "Ticket revenue and government subsidies"
+tags: monetary_rcs
+
+Me: Ticket revenue and government subsidies.
+
+# Culture
+
+@cul_arts_mrcs
+title: Grants and donations
+view-if: sector = "culture"
+on-arrival: monetaryresources = "Grants and donations"
+tags: monetary_rcs
+
+Me: Grants and donations.
+
+@cul_heritage_mrcs
+title: Heritage funding and visitor fees
+view-if: sector = "culture"
+on-arrival: monetaryresources = "Heritage funding and visitor fees"
+tags: monetary_rcs
+
+Me: Heritage funding and visitor fees.
+
+@cul_newsroom_mrcs
+title: Advertising revenue and subscriptions
+view-if: sector = "culture"
+on-arrival: monetaryresources = "Advertising revenue and subscriptions"
+tags: monetary_rcs
+
+Me: Advertising revenue and subscriptions.
+
+# Education
+
+@edu_kindergarten_mrcs
+title: Kindergarten budget and early childhood funding
+view-if: sector = "education"
+on-arrival: monetaryresources = "Kindergarten budget and early childhood funding"
+tags: monetary_rcs
+
+Me: Kindergarten budget and early childhood funding.
+
+@edu_school_mrcs
+title: Government funding and tuition fees
+view-if: sector = "education"
+on-arrival: monetaryresources = "Government funding and tuition fees"
+tags: monetary_rcs
+
+Me: Government funding and tuition fees.
+
+@edu_university_mrcs
+title: University endowment and research grants
+view-if: sector = "education"
+on-arrival: monetaryresources = "University endowment and research grants"
+tags: monetary_rcs
+
+Me: University endowment and research grants.
+
+# Industry
+
+@ind_factory_mrcs
+title: Operating capital and investment funds
+view-if: sector = "industry"
+on-arrival: monetaryresources = "Operating capital and investment funds"
+tags: monetary_rcs
+
+Me: Operating capital and investment funds.
+
+@ind_construction_mrcs
+title: Project financing and client payments
+view-if: sector = "industry"
+on-arrival: monetaryresources = "Project financing and client payments"
+tags: monetary_rcs
+
+Me: Project financing and client payments.
+
+@ind_logging_mrcs
+title: Timber revenue and forestry investments
+view-if: sector = "industry"
+on-arrival: monetaryresources = "Timber revenue and forestry investments"
+tags: monetary_rcs
+
+Me: Timber revenue and forestry investments.
+
+# Nonprofit
+
+@non_service_mrcs
+title: Grants and donations
+view-if: sector = "nonprofit"
+on-arrival: monetaryresources = "Grants and donations"
+tags: monetary_rcs
+
+Me: Grants and donations.
+
+@non_advocacy_mrcs
+title: Foundation grants and campaign contributions
+view-if: sector = "nonprofit"
+on-arrival: monetaryresources = "Foundation grants and campaign contributions"
+tags: monetary_rcs
+
+Me: Foundation grants and campaign contributions.
+
+@non_climate_mrcs
+title: Environmental grants and conservation funding
+view-if: sector = "nonprofit"
+on-arrival: monetaryresources = "Environmental grants and conservation funding"
+tags: monetary_rcs
+
+Me: Environmental grants and conservation funding.
+
+# Public service
+
+@pub_health_mrcs
+title: Government budget and insurance reimbursements
+view-if: sector = "publicservice"
+on-arrival: monetaryresources = "Government budget and insurance reimbursements"
+tags: monetary_rcs
+
+Me: Government budget and insurance reimbursements.
+
+@pub_service_mrcs
+title: Government budget and public service funding
+view-if: sector = "publicservice"
+on-arrival: monetaryresources = "Government budget and public service funding"
+tags: monetary_rcs
+
+Me: Government budget and public service funding.
+
+@pub_parks_mrcs
+title: Conservation budget and park fees
+view-if: sector = "publicservice"
+on-arrival: monetaryresources = "Conservation budget and park fees"
+tags: monetary_rcs
+
+Me: Conservation budget and park fees.
+
+# Policymaking
+
+@pol_policy_mrcs
+title: National budget and treasury funds
+view-if: sector = "policymaking"
+on-arrival: monetaryresources = "National budget and treasury funds"
+tags: monetary_rcs
+
+Me: National budget and treasury funds.
+
+@pol_city_mrcs
+title: Municipal budget and local taxes
+view-if: sector = "policymaking"
+on-arrival: monetaryresources = "Municipal budget and local taxes"
+tags: monetary_rcs
+
+Me: Municipal budget and local taxes.
+
+@pol_intl_mrcs
+title: Foreign affairs budget and diplomatic funding
+view-if: sector = "policymaking"
+on-arrival: monetaryresources = "Foreign affairs budget and diplomatic funding"
+tags: monetary_rcs
+
+Me: Foreign affairs budget and diplomatic funding.

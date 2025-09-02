@@ -1,0 +1,40 @@
+title: Intro Scene  
+subtitle: The Beginning of Understanding  
+new-page: true  
+
+= In the not so distant future...  
+
+...our world grapples with the symptoms of the polycrisis.
+
+And the robots? They are doing their own thing now.
+
+You arrive in the middle of it all, searching for the teahouse to catch up with an old friend. 
+
+You came here:  
+
+- @by_yourself
+- @with_group
+- @for_organization
+
+@by_yourself
+title: On my own 
+subtitle: Currently without company
+on-arrival: part_of = "individual"
+go-to: find_teahouse
+
+Me: On my own. My friend invited me to learn about a new management framework.
+
+@with_group
+title: With family or friends
+on-arrival: part_of = "group"
+go-to: find_teahouse
+
+Me: As a group. Our friend invited us to learn about a new management framework.
+
+@for_organization
+title: On behalf of your organisation
+subtitle: Or with your colleagues
+on-arrival: part_of = "organisation"
+go-to: find_teahouse
+
+Me: On behalf of our organisation. Our friend invited us to learn about a new management framework.

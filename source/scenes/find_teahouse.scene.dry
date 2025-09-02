@@ -1,0 +1,171 @@
+title: Find the teahouse  
+subtitle: On the way to the Teahouse  
+new-page: true 
+on-arrival: poly-what = 1
+on-departure: poly-what = 0
+tags: intro  
+
+You step into a wide plaza.
+
+Info screens alternate with small shops. 
+A delivery drone circles overhead, searching for the best angle to take a selfie.  
+
+On the horizon, a dust storm gathers, its grit already scratching at your throat.
+
+Nearby, someone mutters something about the polycrisis...
+
+- #plaza
+
+@poly_what  
+title: The poly-what?  
+subtitle: Isn’t a normal crisis bad enough already?  
+view-if: poly-what = 1
+tags: plaza
+
+Me: The poly-what?  
+
+The stranger eyes you, amused.  
+
+Stranger: The polycrisis is when social, economic, and environmental challenges stop lining up one by one... and start crashing down together.  
+
+- @stranger_teahouse_directions
+- @vendor_scene: Buy water from a vendor
+- @info_screen: Read the info-screen  
+
+@stranger_teahouse_directions
+title: Ask for directions to the teahouse
+on-arrival: know_sidestreet = 1 
+
+Me: Hey, before you go, could you tell me how to get to the teahouse?
+
+Stranger: Sure, it's that way. Just follow the red banners; they'll lead you straight there.
+
+They point to a sidestreet, then disappear into the crowd.
+
+- #plaza
+
+@info_screen  
+title: Read the info-screen
+tags: plaza
+max-visits: 1
+
+You step closer to one of the info-screens. Images flicker: last week’s megafires, famine zones, heatwaves, and protests.
+
+The headlines warn:  
+
+Headline1: Protests escalate.
+Headline1: Blackouts expected to continue.
+Headline2: Global harvests at record low.  
+Headline3: Water shortages intensifying.  
+
+- #plaza
+
+@vendor_scene  
+title: Buy water from a vendor  
+tags: plaza
+max-visits: 1
+
+A vendor waves a cracked purifier bottle at you.  
+
+Vendor: One sip for a coin. Or keep walking thirsty.  
+
+- @pay_vendor: Hand over your last crypto  
+- @haggle_vendor: Haggle with the vendor. 
+
+@pay_vendor  
+title: Metallic Sip  
+subtitle: Last coin spent  
+
+You hand over your last bit of crypto. The water tastes metallic, but eases your throat.  
+
+- @vendor_teahouse_directions
+
+@haggle_vendor  
+title: Negotiation  
+
+Me: That’s robbery. Half a coin.  
+
+The vendor narrows his eyes, then shrugs.  
+Vendor: Fine. Half. You’ll wish you’d bought more.  
+
+The water is thin but cool. Enough to ease your tongue.  
+
+- @vendor_teahouse_directions 
+
+@vendor_teahouse_directions
+title: Ask for the teahouse
+on-arrival: know_sidestreet = 1 
+
+Me: Do you know where the teahouse is?
+
+The vendor points down a side street.  
+
+Vendor: Follow the red banners. You can’t miss it.  
+
+- #plaza
+
+@people_drawing
+title: Ask for directions to the teahouse
+tags: plaza
+max-visits: 1
+
+You see some people with their kids scratching shapes into the dust.  
+
+As you get closer, you recognize the logos of NASA, WHO, WWF and other organizations.  
+
+- @why_drawing  
+- @people_teahouse_directions
+
+@why_drawing  
+title: Ask them why they draw these
+
+Me: Why do you draw these?
+
+Drawer: So we remember who tries to fix what, even if it doesn’t last.  
+
+The dust from the nearby farms blows the drawings away. 
+
+It’s a quiet reminder: Without functioning agriculture, most organizations would not even exist.  
+
+- @people_teahouse_directions
+
+@people_teahouse_directions
+title: Ask them where the teahouse is
+on-arrival: know_sidestreet = 1 
+
+Me: Do you know where the teahouse is?
+
+One points down a side street.  
+Drawer: Follow the red banners. You can’t miss it.  
+
+- #plaza
+
+@side-street
+title: Head to the teahouse
+view-if: know_sidestreet = 1 
+tags: plaza
+
+You stumble through the side street, dust stinging your face. 
+
+On the sidewalk, a drone hovers in place, dropping crumbs to a swarm of eager pigeons. Then it falters, topples, and lies struggling on the ground.
+
+The paper lanterns of the old teahouse sway in the wind, welcoming you into dim light. 
+
+- #th_arrival
+
+@drone_scene  
+title: Help the drone
+max-visits: 1
+tags: th_arrival
+
+You crouch and carefully pick it up.  
+
+Me: Let’s see... sensors misaligned.  
+
+You switch off the drone, adjust its optics, check the battery and switch it back on again.  
+
+The drone lifts off, circling briefly before palling again with the birds. 
+
+Something about its behavior makes you smile...
+
+- #th_arrival
