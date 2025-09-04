@@ -1,4 +1,4 @@
-/* Modern Chat Interface for Dendry - Clean Modern Design */
+/* Modern Chat Interface for Dendry - UIKit Inspired Design */
 
 /* CSS Custom Properties - Modern Chat Palette */
 :root {
@@ -45,7 +45,7 @@
   --error-color: #dc3545;
   --info-color: #17a2b8;
   
-  /* Spacing - Modern design system */
+  /* Spacing - UIKit inspired */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -67,7 +67,7 @@
   --transition-medium: 0.25s ease;
   --transition-smooth: 0.3s ease;
   
-  /* Border Radius - Modern design system */
+  /* Border Radius - UIKit style */
   --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -1154,37 +1154,6 @@ ul.choices li.selected {
     color: black !important;
   }
 }
-/* Material Icons */
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  vertical-align: middle;
-}
-
-/* Icon sizing for different contexts */
-.header-btn .material-symbols-outlined {
-  font-size: 18px;
-}
-
-.sidebar-header-btn .material-symbols-outlined {
-  font-size: 16px;
-}
-
-.modal-close .material-symbols-outlined {
-  font-size: 20px;
-}
-
 /* Screen Reader Only - Accessibility */
 .sr-only {
   position: absolute !important;

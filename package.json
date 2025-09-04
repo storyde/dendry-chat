@@ -1,6 +1,6 @@
 {
   "name": "dendry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tools to create and build interactive fiction.",
   "keywords": [
     "interactive fiction"
@@ -17,7 +17,7 @@
   "dependencies": {
     "argparse": "1.0.x",
     "async": "1.x.x",
-    "browserify": "10.x.x",
+    "browserify": "17.x.x",
     "browserify-zlib": "^0.2.0",
     "colors": "1.1.x",
     "dive": "0.4.x",
@@ -25,7 +25,7 @@
     "lodash": "3.10.x",
     "mkdirp": "0.5.x",
     "prompt": "0.2.x",
-    "uglify-js": "2.4.x",
+    "uglify-js": "3.19.x",
     "wordwrap": "1.0.x"
   },
   "devDependencies": {

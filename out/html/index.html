@@ -7,13 +7,19 @@
     <meta name="theme-color" content="#1e293b">
     <title>TestStory - storyde</title>
     
-    <!-- Material Symbols - Optimized for specific icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0&icon_names=close,dark_mode,download,light_mode,list,public&display=block" rel="stylesheet">
+    <!-- UIKit Icons are loaded via JavaScript below -->
+    
+    <!-- UIKit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
     
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="game.css">
     
-    <!-- Dendry and JS -->
+    <!-- UIKit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
+    
+    <!-- Dendry -->
     <script src="core.js"></script>
     <script src="game.js"></script>
   </head>
@@ -27,7 +33,7 @@
         <div class="header-content">
           <div class="header-left">
             <button id="progress-toggle" class="header-btn" aria-label="Toggle Progress" tabindex="0">
-              <span class="material-symbols-outlined">public</span>
+              <span uk-icon="icon: world"></span>
               <span class="sr-only">Toggle Progress Panel</span>
             </button>
             <div class="game-title">
@@ -36,7 +42,7 @@
           </div>
           <div class="header-right">
             <button id="info-toggle" class="header-btn" aria-label="Toggle Info" tabindex="0">
-              <span class="material-symbols-outlined">list</span>
+              <span uk-icon="icon: list"></span>
               <span class="sr-only">Toggle Info Panel</span>
             </button>
           </div>
@@ -50,7 +56,7 @@
         <aside id="progress-sidebar" class="sidebar sidebar-left">
           <div class="sidebar-header">
             <h3>
-              <span class="material-symbols-outlined">public</span>
+              <span uk-icon="icon: world"></span>
               Progress
             </h3>
           </div>
@@ -82,15 +88,15 @@
         <aside id="info-sidebar" class="sidebar sidebar-right">
           <div class="sidebar-header">
             <h3>
-              <span class="material-symbols-outlined">list</span>
+              <span uk-icon="icon: list"></span>
               Info
             </h3>
             <button id="sidebar-theme-toggle" class="sidebar-header-btn" aria-label="Toggle Theme" tabindex="0">
-              <span class="material-symbols-outlined">dark_mode</span>
+              <span uk-icon="icon: bolt"></span>
               <span class="sr-only">Toggle Theme</span>
             </button>
             <button class="sidebar-header-btn" onclick="window.showSaveSlots();" aria-label="Save/Load Game" tabindex="0">
-              <span class="material-symbols-outlined">download</span>
+              <span uk-icon="icon: download"></span>
               <span class="sr-only">Save/Load Game</span>
             </button>
           </div>
@@ -113,7 +119,7 @@
         <div class="modal-header">
           <h2 id="save-modal-title">Save & Load Game</h2>
           <button onclick="window.hideSaveSlots();" class="modal-close" aria-label="Close Save Dialog">
-            <span class="material-symbols-outlined">close</span>
+            <span uk-icon="icon: close"></span>
           </button>
         </div>
         <div class="modal-body">

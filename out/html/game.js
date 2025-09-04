@@ -364,22 +364,20 @@
 
   function toggleTheme() {
     var body = document.body;
-    var sidebarThemeIcon = document.querySelector('#sidebar-theme-toggle .material-symbols-outlined');
+    var sidebarThemeIcon = document.querySelector('#sidebar-theme-toggle span');
     
     if (body.classList.contains('theme-light')) {
       body.classList.remove('theme-light');
       body.classList.add('theme-dark');
       if (sidebarThemeIcon) {
-        sidebarThemeIcon.className = 'material-symbols-outlined';
-        sidebarThemeIcon.textContent = 'light_mode';
+        sidebarThemeIcon.setAttribute('uk-icon', 'icon: bolt');
       }
       currentTheme = 'dark';
     } else {
       body.classList.remove('theme-dark');
       body.classList.add('theme-light');
       if (sidebarThemeIcon) {
-        sidebarThemeIcon.className = 'material-symbols-outlined';
-        sidebarThemeIcon.textContent = 'dark_mode';
+        sidebarThemeIcon.setAttribute('uk-icon', 'icon: star');
       }
       currentTheme = 'light';
     }
@@ -391,22 +389,20 @@
   function loadTheme() {
     var savedTheme = localStorage.getItem('game-theme') || 'light';
     var body = document.body;
-    var sidebarThemeIconElement = document.querySelector('#sidebar-theme-toggle .material-symbols-outlined');
+    var sidebarThemeIconElement = document.querySelector('#sidebar-theme-toggle span');
     
     if (savedTheme === 'dark') {
       body.classList.remove('theme-light');
       body.classList.add('theme-dark');
       if (sidebarThemeIconElement) {
-        sidebarThemeIconElement.className = 'material-symbols-outlined';
-        sidebarThemeIconElement.textContent = 'light_mode';
+        sidebarThemeIconElement.setAttribute('uk-icon', 'icon: bolt');
       }
       currentTheme = 'dark';
     } else {
       body.classList.remove('theme-dark');
       body.classList.add('theme-light');
       if (sidebarThemeIconElement) {
-        sidebarThemeIconElement.className = 'material-symbols-outlined';
-        sidebarThemeIconElement.textContent = 'dark_mode';
+        sidebarThemeIconElement.setAttribute('uk-icon', 'icon: star');
       }
       currentTheme = 'light';
     }
