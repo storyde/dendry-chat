@@ -37,6 +37,8 @@ In scope:
 - `lib/ui/content/html.js`
 - `lib/engine.js`
 - `lib/cli/cmd/make-html.js`
+- `out/html/index.html` as the active runtime contract
+- `out/html/game.js` as the active runtime contract
 - the generated `out/html/core.js`
 
 Out of scope:
@@ -44,7 +46,7 @@ Out of scope:
 - jQuery cleanup in `P:\Documents\GitHub\managecomplexity-7\out\`
 - broader engine redesign
 - story/runtime `$code` modernization
-- HTML template redesign beyond what is needed for bundling/bootstrap compatibility
+- redesign of the currently shipped `out/html/index.html` / `out/html/game.js` beyond what is needed for bundling/bootstrap compatibility
 
 ## Core Constraints
 
@@ -60,13 +62,93 @@ These are the rules the implementation must follow.
    - `window.setSprites`
    - `window.setSprite`
    - `window.setSpriteStyle`
-   - `window.displayText`
    - `window.displayParagraphHTML`
+   - `window.updateProgressSidebar`
+   - `window.updateInfoSidebar`
+   - `window.showSaveSlots`
+   - `window.hideSaveSlots`
+   - `window.populateSaveSlots`
+   - `window.quickSave`
+   - `window.quickLoad`
+   - `window.saveSlot`
+   - `window.loadSlot`
+   - `window.deleteSlot`
+   - `window.exportSlot`
+   - `window.importSave`
+   - `window.showNotification`
+   - `window.closeSidebars`
 4. Preserve engine behavior based on dynamic execution from `lib/engine.js`:
    - `new Function('state', 'Q', source)`
    - `.call(context, state, state.qualities)`
-5. Do not switch the shipped HTML to native module loading as part of this pass. The template currently loads `core.js` as a normal script.
-6. Keep behavior changes separated from syntax/style modernization wherever possible.
+5. Preserve the current startup order used by the shipped output:
+   - `index.html` loads `core.js` before `game.js`
+   - `core.js` must create `window.dendryUI` before `game.js` uses it
+   - `game.js` currently performs post-bootstrap work in `window.onload`, including `window.dendryUI.loadSettings()`
+6. Do not switch the shipped HTML to native module loading as part of this pass. The current output loads `core.js` as a normal script.
+7. Keep behavior changes separated from syntax/style modernization wherever possible.
+
+## Current Runtime Contract
+
+The implementation target for this project is the currently shipped output in:
+
+- `out/html/index.html`
+- `out/html/game.js`
+
+This matters because the active runtime contract is no longer defined by the built-in template sources under `lib/templates`.
+
+### Actual startup contract
+
+The shipped HTML currently does all of the following:
+
+1. loads `core.js`
+2. loads `game.js`
+3. expects `game.js` to attach custom `window.*` hooks
+4. expects `window.dendryUI` and `window.dendryUI.dendryEngine` to be available to inline handlers and custom helpers
+5. expects `window.onload` post-bootstrap initialization to keep working
+
+### Actual DOM contract
+
+The shipped output currently depends on these IDs and containers:
+
+- `#content`
+- `#chat-container`
+- `#progress`
+- `#info`
+- `#save`
+- `#sidebar-overlay`
+- `#progress-sidebar`
+- `#info-sidebar`
+- `#theme-toggle`
+- `#progress-toggle`
+- `#info-toggle`
+- `#import_save`
+- save slot button IDs such as:
+  - `#save_button_a0`
+  - `#delete_button_a0`
+  - `#export_button_a0`
+  - `#save_info_a0`
+
+### Actual behavior that must stay intact
+
+The shipped output currently relies on:
+
+- inline `onclick` handlers that call `window.showSaveSlots()`
+- inline `onclick` handlers that call `window.hideSaveSlots()`
+- inline `onclick` handlers that call `dendryUI.dendryEngine.goToScene(...)`
+- custom sidebar updates triggered from `window.onDisplayContent`
+- custom scroll handling triggered from `window.onNewPage`
+- save/load/import/export helpers implemented in `out/html/game.js`
+- notification UI implemented through `window.showNotification`
+
+### Optional DOM warning
+
+The current shipped output does **not** contain the old built-in template DOM for:
+
+- `#bg1`
+- `#bg2`
+- sprite containers
+
+So the migration must not assume those nodes exist in the actual shipped HTML. Any background/sprite behavior that remains in `browser.js` should either be guarded for missing DOM or treated as optional for this project's active output.
 
 ## Important Technical Finding
 
@@ -105,6 +187,7 @@ Safe targets:
 
 - convert constructor/prototype to `class` methods only after the compatibility surface is stable
 - use arrow functions only inside callbacks where lexical capture is intended
+- convert to `class BrowserUserInterface` only if inheritance is updated deliberately, because `engine.UserInterface.makeParentOf(...)` is constructor/prototype-era wiring
 
 Unsafe targets:
 
@@ -180,7 +263,7 @@ with the output staying as a standard script bundle, not a module-script migrati
 
 ## Phased Plan
 
-## Phase 00 -  Obvious Bug Fixes
+## Phase 00 -  Obvious Bug Fixes - Already implemented
 
 Bug Fix 1 — Typo: 'bacground-color' → 'background-color' (line 208)
 Effect: Solid-color backgrounds (hex/rgb/rgba) were silently failing when background animations were disabled. Now the CSS property name is correct.
@@ -208,21 +291,32 @@ Tasks:
 1. Record all `window.*` hooks used by:
    - `lib/ui/browser.js`
    - `lib/ui/content/html.js`
+   - `out/html/game.js`
+   - inline handlers in `out/html/index.html`
 2. Record startup/bootstrap expectations:
    - `window.game.compiled`
    - `window.dendryUI`
-   - `DOMContentLoaded` startup timing
+   - `DOMContentLoaded` / ready timing for `core.js`
+   - `window.onload` timing for `out/html/game.js`
+   - script load order: `core.js` before `game.js`
 3. Record required DOM IDs:
    - `#content`
-   - `#bg1`
-   - `#bg2`
-   - sprite containers
-   - save/options modal IDs
+   - `#chat-container`
+   - `#progress`
+   - `#info`
+   - `#save`
+   - `#sidebar-overlay`
+   - sidebar toggles
+   - save/import modal IDs
+   - any optional background/sprite IDs still referenced by `browser.js`
 4. Record the behavior checklist for:
    - startup
    - content rendering
    - choices
    - page transitions
+   - progress/info sidebar updates
+   - chat scroll behavior
+   - notification behavior
    - background changes
    - sprite updates
    - audio
@@ -254,6 +348,7 @@ Guardrails:
 
 - do not convert everything to classes/modules in the same pass
 - do not change public hook names
+- do not break the existing `out/html/game.js` global helper surface
 - do not change save system behavior unless fixing an identified defect
 
 Done when:
@@ -270,7 +365,7 @@ Allowed changes:
 - template literals
 - destructuring
 - helper extraction
-- `class BrowserUserInterface` if method semantics remain intact
+- `class BrowserUserInterface` only if the `engine.UserInterface` inheritance path is rewritten explicitly and verified
 - arrow functions only where lexical `this` is intended
 
 Required review checklist for each edited function:
@@ -295,7 +390,6 @@ Tasks:
    - `window.dendryUI`
    - any externally callable hook wrappers that must remain global
 3. Keep content-renderer hooks working:
-   - `window.displayText`
    - `window.displayParagraphHTML`
 4. Keep optional UI extension hooks working:
    - `window.dendryModifyUI`
@@ -303,6 +397,11 @@ Tasks:
    - `window.onNewPage`
    - `window.handleSignal`
    - sprite hook functions
+5. Keep shipped output helpers working:
+   - save/load/import/export globals
+   - sidebar update globals
+   - notification globals
+   - any global functions still used by inline handlers in `out/html/index.html`
 
 Done when:
 
@@ -320,7 +419,8 @@ Tasks:
 3. Keep the final code assembly equivalent in purpose:
    - embed `window.game = { compiled: ... }`
    - append the UI bundle
-4. Keep the output as a plain browser script compatible with the current template include.
+4. Preserve `--pretty` behavior so the build can still emit an unminified bundle when requested.
+5. Keep the output as a plain browser script compatible with the current `out/html/index.html` include.
 
 Important implementation note:
 
@@ -344,8 +444,12 @@ Checks:
    - first scene render
    - choice click
    - page transition
+   - progress/info sidebar refresh
+   - save modal open/close
+   - import/export flow
    - at least one save/load cycle
-   - at least one sprite/background update
+   - notification display
+   - at least one sprite/background update if those features are still enabled for the game
 
 Done when:
 
@@ -373,6 +477,7 @@ Done when:
 2. `setSprite` has callback-context fragility and a typo bug history.
 3. Save-slot helper wiring and import/export behavior are easy to regress because they mix DOM lookup, state restore, and callback factories.
 4. `audio` mixes queueing, loop state, fade timing, and current-instance mutation, which makes careless callback conversion dangerous.
+5. `newPage` currently empties content before attempting the fade path, so the animation behavior there should be treated as an existing defect, not as a migration regression.
 
 ### Modernization rule for arrows
 
@@ -394,9 +499,10 @@ The plan is complete when implementation delivers all of the following:
 2. `lib/ui/browser.js` is modern ES6+ source.
 3. `out/html/core.js` is generated through Bun, without Babel.
 4. The current non-module HTML bootstrap still works.
-5. All current `window` hooks still work.
+5. All current `window` hooks used by `out/html/game.js` and `out/html/index.html` still work.
 6. Engine/runtime dynamic `this` behavior is preserved.
 7. The generated output targets evergreen browsers, not legacy ones.
+8. The generated `core.js` remains compatible with the manually maintained `out/html/index.html` and `out/html/game.js`.
 
 ## Final Recommendation
 
